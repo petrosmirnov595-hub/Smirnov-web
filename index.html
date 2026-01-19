@@ -7,32 +7,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* ==================== БАЗОВЫЕ СТИЛИ ==================== */
+        /* ==================== БАЗОВЫЕ СТИЛИ (ПК) ==================== */
         body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); color: #333; line-height: 1.6; overflow-x: hidden; padding-bottom: 60px; }
         html { scroll-behavior: smooth; }
         img { max-width: 100%; height: auto; display: block; }
 
-        /* ==================== ШАПКА ==================== */
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px 20px 80px; text-align: center; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4); }
+        /* ШАПКА */
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 20px 60px; text-align: center; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4); }
         
         .header-image { 
-            width: 150px; height: 150px; 
+            width: 140px; height: 140px; 
             object-fit: cover; border-radius: 50%; 
-            margin: 0 auto 25px; 
+            margin: 0 auto 20px; 
             border: 4px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
         }
         
         header h1 { font-family: 'Montserrat', sans-serif; font-size: 2.2em; margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; line-height: 1.2; }
         header p { font-family: 'Montserrat', sans-serif; font-size: 1.1em; margin-top: 10px; color: #00f260; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* ==================== ЗАГОЛОВКИ СЕКЦИЙ ==================== */
+        /* ЗАГОЛОВКИ */
         h2 { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2em; margin-bottom: 30px; position: relative; font-weight: 800; }
         h2::after { content: ''; display: block; width: 60px; height: 5px; background: linear-gradient(90deg, #667eea, #764ba2); margin: 10px auto 0; border-radius: 10px; }
 
-        /* ==================== ОБО МНЕ ==================== */
-        .approach-section { padding: 80px 20px; background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed; color: white; position: relative; }
-        .approach-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 1; }
+        /* СЕКЦИИ (Общие настройки) */
+        .approach-section, .services-section, .sky-section, .cta-section { padding: 80px 20px; position: relative; }
         
+        /* ОБО МНЕ */
+        .approach-section { background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed; color: white; }
+        .approach-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 1; }
         .approach-card { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 40px; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.2); }
         .approach-card h2 { color: white; margin-top: 0; }
         .approach-card h2::after { background: #00f260; }
@@ -40,15 +42,15 @@
         .approach-text p { margin-bottom: 15px; }
         .approach-text strong { color: #00f260; font-weight: 800; }
 
-        /* ==================== СЛАЙДЕР ==================== */
+        /* СЛАЙДЕР */
         .fullscreen-section { height: 60vh; background: #000; overflow: hidden; position: relative; }
         .fullscreen-slideshow { position: relative; width: 100%; height: 100%; }
         .slide-full { width: 100%; height: 100%; object-fit: cover; position: absolute; animation: fadeFull 8s infinite; opacity: 0; }
         .slide-full:nth-child(1) { animation-delay: 0s; } .slide-full:nth-child(2) { animation-delay: 4s; }
         @keyframes fadeFull { 0%, 50% { opacity: 1; } 60%, 100% { opacity: 0; } }
 
-        /* ==================== УСЛУГИ ==================== */
-        .services-section { padding: 80px 20px; background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-attachment: fixed; position: relative; text-align: center; color: white; }
+        /* УСЛУГИ */
+        .services-section { background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-attachment: fixed; text-align: center; color: white; }
         .services-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1; }
         .services-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
         .services-content h2 { color: white; }
@@ -59,8 +61,8 @@
         .service-link { display: block; padding: 30px 20px; text-decoration: none; color: white; height: 100%; width: 100%; box-sizing: border-box; }
         li strong { display: block; font-size: 1.3em; margin-bottom: 10px; font-family: 'Montserrat', sans-serif; }
 
-        /* ==================== ВАЖНО ЗНАТЬ ==================== */
-        .sky-section { padding: 80px 20px; background-image: url('https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-attachment: fixed; position: relative; }
+        /* ВАЖНО ЗНАТЬ */
+        .sky-section { background-image: url('https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-attachment: fixed; }
         .sky-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.1); z-index: 1; }
         .sky-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
         .sky-content h2 { color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.2); }
@@ -71,8 +73,8 @@
         .panel { padding: 0 20px; background: rgba(255,255,255,0.95); max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; border-radius: 0 0 15px 15px; margin-bottom: 10px; }
         .panel p { padding: 20px 0; font-size: 1.05em; color: #444; }
 
-        /* ==================== ФОРМА ==================== */
-        .cta-section { padding: 100px 20px; text-align: center; background-image: url('http://googleusercontent.com/image_collection/image_retrieval/14932439240185330021'); background-size: cover; background-position: center; position: relative; }
+        /* ФОРМА */
+        .cta-section { text-align: center; background-image: url('http://googleusercontent.com/image_collection/image_retrieval/14932439240185330021'); background-size: cover; background-position: center; }
         .cta-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1; }
         .cta-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
         .cta-content h2 { color: white; margin-bottom: 30px; font-size: 2.5em; }
@@ -80,7 +82,7 @@
         input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: 10px; box-sizing: border-box; font-family: inherit; font-size: 1rem; background: #f9f9f9; }
         .cta-button { display: inline-block; width: 100%; padding: 18px; background: linear-gradient(45deg, #ff416c, #ff4b2b); color: white; border: none; font-size: 1.2em; font-weight: 800; border-radius: 60px; cursor: pointer; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(255, 75, 43, 0.4); }
 
-        /* ==================== ФУТЕР ==================== */
+        /* ФУТЕР */
         footer { padding: 60px 20px 100px; color: white; text-align: center; background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-attachment: fixed; position: relative; }
         footer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1; }
         footer > * { position: relative; z-index: 2; }
@@ -89,19 +91,47 @@
         .inn-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 10px 20px; border-radius: 50px; margin: 30px auto; font-family: 'Montserrat', sans-serif; color: #fff; font-size: 0.9rem; backdrop-filter: blur(5px); width: fit-content; max-width: 100%; flex-wrap: wrap; justify-content: center; }
         .bank-icons span { display: inline-block; margin: 5px; padding: 8px 15px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); font-size: 0.9em; }
 
-        /* ==================== БЕГУЩАЯ СТРОКА ==================== */
+        /* БЕГУЩАЯ СТРОКА */
         .ticker-wrap { position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); z-index: 9999; display: flex; align-items: center; border-top: 3px solid #00f260; }
         .ticker { display: flex; white-space: nowrap; animation: ticker 40s linear infinite; }
         .ticker-item { padding: 0 15px; color: white; font-weight: 800; font-family: 'Montserrat', sans-serif; font-size: 0.9em; text-transform: uppercase; display: flex; align-items: center; }
         .sep { margin-left: 10px; color: #00f260; }
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-        /* ==================== АДАПТАЦИЯ ==================== */
+        /* ==================== 📱 МОБИЛЬНАЯ АДАПТАЦИЯ (СУПЕР КОМПАКТНО) ==================== */
         @media (max-width: 768px) {
-            .approach-section, .services-section, .sky-section, .cta-section, footer { background-attachment: scroll; padding: 60px 15px; }
-            .fullscreen-section { height: 60vh; }
-            .social-btn { flex: 1 1 40%; }
+            /* Уменьшаем отступы между блоками в 2 раза */
+            .approach-section, .services-section, .sky-section, .cta-section, footer { 
+                background-attachment: scroll; /* Чтобы фон не глючил */
+                padding: 40px 15px; /* БЫЛО 80px, СТАЛО 40px */
+            }
+
+            /* Уменьшаем шапку */
+            header { padding: 30px 15px 40px; }
+            .header-image { width: 110px; height: 110px; } /* Аватарка меньше */
+            header h1 { font-size: 1.7em; } /* Заголовок меньше */
+            header p { font-size: 0.95em; letter-spacing: 1px; }
+
+            /* Уменьшаем заголовки разделов */
+            h2 { font-size: 1.6em; margin-bottom: 20px; }
+            h2::after { margin-top: 10px; }
+
+            /* Текст стал чуть меньше и компактнее */
+            .approach-card { padding: 25px; }
+            .approach-text, .panel p { font-size: 1em; line-height: 1.5; }
+
+            /* Слайдер стал ниже, чтобы не занимать весь экран */
+            .fullscreen-section { height: 40vh; }
+
+            /* Кнопки соцсетей компактнее */
+            .social-btn { padding: 10px 15px; font-size: 0.85em; flex: 1 1 40%; }
+            
+            /* ИНН и банки */
+            .inn-badge { padding: 8px 15px; font-size: 0.8rem; margin: 20px auto; }
+            .bank-icons span { padding: 5px 10px; font-size: 0.8em; }
         }
+
+        /* Возвращаем красоту для ПК */
         @media (min-width: 769px) {
             .header-image { width: 100%; max-width: 900px; height: 320px; border-radius: 25px; border: 5px solid rgba(255,255,255,0.25); }
             ul { flex-direction: row; }
@@ -113,7 +143,6 @@
 
     <header>
         <img src="foto1.png" class="header-image" alt="Smirnov Marketing">
-        
         <h1>Smirnov Marketing | IT</h1>
         <p>Маркетинг • Разработка • Дизайн</p>
     </header>
@@ -139,10 +168,10 @@
 
     <div class="services-section">
         <div class="services-content">
-            <h2>⚡ Чем я полезен?</h2>
-            <p style="color:#00f260; font-weight:bold; margin-bottom:30px; font-size:1.1em;">Глобальные решения 👇</p>
+            <h2>⚡ Услуги</h2>
+            <p style="color:#00f260; font-weight:bold; margin-bottom:20px; font-size:1.1em;">Глобальные решения 👇</p>
             <ul>
-                <li><a href="#order-form" class="service-link">💻 <strong>Разработка сайтов</strong><br>Лендинги и визитки</a></li>
+                <li><a href="#order-form" class="service-link">💻 <strong>Сайты</strong><br>Лендинги и визитки</a></li>
                 <li><a href="#order-form" class="service-link">🤖 <strong>Боты</strong><br>Автоматизация TG</a></li>
                 <li><a href="#order-form" class="service-link">🎨 <strong>Дизайн</strong><br>Инфографика</a></li>
                 <li><a href="#order-form" class="service-link">📢 <strong>SMM</strong><br>Продвижение</a></li>
@@ -152,7 +181,7 @@
 
     <div class="sky-section">
         <div class="sky-content">
-            <h2>📌 Важно знать</h2>
+            <h2>📌 Важно</h2>
             <div class="accordion" onclick="toggle(this)">⏱ Сроки</div>
             <div class="panel">
                 <p>Работаю на качество. Лендинг — <strong>от 7 дней</strong>. Телеграм-бот — <strong>от 3 дней</strong>.</p>
@@ -178,14 +207,14 @@
                     <input type="text" name="Имя" placeholder="Ваше Имя" required>
                     <input type="tel" name="Телефон" placeholder="Ваш Телефон" required>
                     <textarea name="Сообщение" placeholder="Что нужно сделать?" rows="3"></textarea>
-                    <button type="submit" class="cta-button">ОТПРАВИТЬ ЗАЯВКУ 🚀</button>
+                    <button type="submit" class="cta-button">ОТПРАВИТЬ 🚀</button>
                 </form>
             </div>
         </div>
     </div>
 
     <footer>
-        <div style="font-weight:800; font-size:1.4em; margin-bottom:20px;">Мои Контакты</div>
+        <div style="font-weight:800; font-size:1.4em; margin-bottom:20px;">Контакты</div>
         <div class="social-row">
             <a href="https://vk.com/pozdravlenienazakaz2025" target="_blank" class="social-btn">VK</a>
             <a href="https://wa.me/79536415081" target="_blank" class="social-btn">WhatsApp</a>
