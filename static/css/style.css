@@ -1,0 +1,80 @@
+/* --- КРАСИВЫЙ FAQ (АККОРДЕОН) --- */
+.faq-section {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+.faq-header {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #1e3c72;
+    margin-bottom: 30px;
+}
+
+/* Кнопка с вопросом */
+.accordion {
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: 0.4s;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Отступ между вопросами */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Эффект при наведении и активном состоянии */
+.active, .accordion:hover {
+    background-color: #eef2f3;
+    color: #1e3c72;
+}
+
+/* Плюсик сбоку */
+.accordion:after {
+    content: '\002B'; /* Символ плюса */
+    color: #e74c3c;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    font-size: 1.5em;
+    transition: transform 0.3s; /* Плавный поворот */
+}
+
+/* Когда открыто - плюсик превращается в минус (крестик) */
+.active:after {
+    content: "\2212"; /* Символ минуса */
+    transform: rotate(180deg);
+}
+
+/* Выезжающая панель с ответом */
+.panel {
+    padding: 0 20px;
+    background-color: white;
+    max-height: 0; /* Скрыто по умолчанию */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* Плавная анимация выезда */
+    border-radius: 0 0 10px 10px;
+    margin-top: -10px; /* Чтобы склеилось с вопросом */
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.panel p {
+    padding: 20px 0;
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+    border-top: 1px solid #eee;
+}

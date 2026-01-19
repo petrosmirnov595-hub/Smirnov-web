@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Smirnov Marketing | IT — Продвижение и Разработка</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==================== БАЗОВЫЕ СТИЛИ ==================== */
+        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); color: #333; line-height: 1.6; overflow-x: hidden; padding-bottom: 60px; /* Отступ под бегущую строку */ }
+        html { scroll-behavior: smooth; }
+
+        /* Чтобы картинки не вылезали за экран */
+        img { max-width: 100%; height: auto; }
+
+        /* ==================== ШАПКА ==================== */
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px 20px 80px; text-align: center; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; margin-bottom: 40px; box-shadow: 0 15px 40px rgba(118, 75, 162, 0.4); }
+
+        .header-image {
+            width: 100%; max-width: 900px; height: 320px;
+            object-fit: cover; border-radius: 25px; margin: 0 auto 35px; display: block;
+            border: 5px solid rgba(255,255,255,0.25); box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        header h1 { font-family: 'Montserrat', sans-serif; font-size: 2.8em; margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 5px 15px rgba(0,0,0,0.2); line-height: 1.2; }
+        header p { font-family: 'Montserrat', sans-serif; font-size: 1.3em; margin-top: 15px; color: #00f260; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; }
+
+        /* ==================== ЗАГОЛОВКИ СЕКЦИЙ ==================== */
+        h2 { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2.4em; margin-bottom: 40px; position: relative; font-weight: 800; line-height: 1.2; }
+        h2::after { content: ''; display: block; width: 80px; height: 6px; background: linear-gradient(90deg, #667eea, #764ba2); margin: 15px auto 0; border-radius: 10px; }
+
+        /* ==================== ОБО МНЕ ==================== */
+        .approach-section {
+            position: relative; padding: 100px 20px;
+            background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: white;
+        }
+        .approach-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 1; }
+
+        .approach-card {
+            position: relative; z-index: 2; max-width: 900px; margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            padding: 50px; border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .approach-card h2 { color: white; margin-top: 0; }
+        .approach-card h2::after { background: #00f260; }
+        .approach-text { font-size: 1.15em; line-height: 1.8; text-align: left; color: #eee; }
+        .approach-text p { margin-bottom: 20px; }
+        .approach-text strong { color: #00f260; font-weight: 800; }
+
+        /* ==================== СЛАЙДЕР ==================== */
+        .fullscreen-section { height: 80vh; background: #000; overflow: hidden; position: relative; } /* Чуть меньше на моб */
+        .fullscreen-slideshow { position: relative; width: 100%; height: 100%; }
+        .slide-full { width: 100%; height: 100%; object-fit: cover; position: absolute; animation: fadeFull 8s infinite; opacity: 0; }
+        .slide-full:nth-child(1) { animation-delay: 0s; } .slide-full:nth-child(2) { animation-delay: 4s; }
+        @keyframes fadeFull { 0%, 50% { opacity: 1; } 60%, 100% { opacity: 0; } }
+
+        /* ==================== УСЛУГИ ==================== */
+        .services-section { padding: 100px 20px; color: white; background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-attachment: fixed; position: relative; text-align: center; }
+        .services-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1; }
+        .services-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
+        .services-content h2 { color: white; }
+        .services-content h2::after { background: #00f260; }
+
+        ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        li { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); flex: 1 1 300px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; overflow: hidden; }
+        li:hover { transform: translateY(-5px); border-color: #00f260; background: rgba(255,255,255,0.15); }
+        .service-link { display: block; padding: 30px 20px; text-decoration: none; color: white; height: 100%; width: 100%; box-sizing: border-box; }
+        li strong { display: block; font-size: 1.3em; margin-bottom: 10px; font-family: 'Montserrat', sans-serif; }
+
+        /* ==================== ВАЖНО ЗНАТЬ ==================== */
+        .sky-section { padding: 100px 20px; background-image: url('https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-attachment: fixed; position: relative; }
+        .sky-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.1); z-index: 1; }
+        .sky-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+        .sky-content h2 { color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+        .accordion { background: rgba(255,255,255,0.95); backdrop-filter: blur(5px); padding: 20px; margin-bottom: 10px; border-radius: 15px; cursor: pointer; font-weight: bold; font-size: 1.1em; transition: 0.3s; display: flex; justify-content: space-between; align-items: center; border: none; width: 100%; text-align: left; font-family: 'Open Sans', sans-serif; }
+        .active-sky { background: #0077b6 !important; color: white !important; }
+        .accordion::after { content: '+'; font-size: 1.5em; margin-left: 10px; }
+        .active-sky::after { content: '-'; }
+        .panel { padding: 0 20px; background: rgba(255,255,255,0.95); max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; border-radius: 0 0 15px 15px; margin-bottom: 10px; }
+        .panel p { padding: 20px 0; font-size: 1.05em; color: #444; }
+
+        /* ==================== ФОРМА ==================== */
+        .cta-section { padding: 100px 20px; text-align: center; background-image: url('http://googleusercontent.com/image_collection/image_retrieval/14932439240185330021'); background-size: cover; background-position: center; position: relative; }
+        .cta-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1; }
+        .cta-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+        .cta-content h2 { color: white; margin-bottom: 30px; }
+
+        .form-container { background: white; padding: 30px; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: 10px; box-sizing: border-box; font-family: inherit; font-size: 1rem; background: #f9f9f9; }
+        input:focus, textarea:focus { border-color: #764ba2; outline: none; background: white; }
+
+        .cta-button { display: inline-block; width: 100%; padding: 18px; background: linear-gradient(45deg, #ff416c, #ff4b2b); color: white; border: none; font-size: 1.2em; font-weight: 800; border-radius: 60px; cursor: pointer; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(255, 75, 43, 0.4); }
+        .cta-button:hover { transform: scale(1.02); }
+
+        /* ==================== ФУТЕР ==================== */
+        footer { padding: 80px 20px 100px; color: white; text-align: center; background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-attachment: fixed; position: relative; }
+        footer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1; }
+        footer > * { position: relative; z-index: 2; }
+
+        .social-row { display: flex; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap; }
+        .social-btn { display: flex; align-items: center; justify-content: center; padding: 12px 25px; border-radius: 50px; text-decoration: none; color: white; font-weight: bold; font-size: 1em; transition: 0.3s; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); }
+
+        .inn-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 10px 20px; border-radius: 50px; margin: 30px auto; font-family: 'Montserrat', sans-serif; color: #fff; font-size: 0.9rem; backdrop-filter: blur(5px); width: fit-content; max-width: 100%; flex-wrap: wrap; justify-content: center; }
+
+        .bank-icons { margin-top: 20px; }
+        .bank-icons span { display: inline-block; margin: 5px; padding: 8px 15px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); font-size: 0.9em; }
+
+        /* ==================== БЕГУЩАЯ СТРОКА ==================== */
+        .ticker-wrap { position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); z-index: 9999; display: flex; align-items: center; border-top: 3px solid #00f260; }
+        .ticker { display: flex; white-space: nowrap; animation: ticker 40s linear infinite; }
+        .ticker-item { padding: 0 20px; color: white; font-weight: 800; font-family: 'Montserrat', sans-serif; font-size: 1em; text-transform: uppercase; display: flex; align-items: center; }
+        .sep { margin-left: 15px; color: #00f260; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* ==================== 📱 МОБИЛЬНАЯ АДАПТАЦИЯ (САМОЕ ВАЖНОЕ) ==================== */
+        @media (max-width: 768px) {
+            /* Отключаем параллакс (фиксированный фон) на телефонах для производительности */
+            .approach-section, .services-section, .sky-section, .cta-section, footer {
+                background-attachment: scroll;
+                padding: 60px 15px; /* Меньше отступы */
+            }
+
+            /* Уменьшаем шрифты */
+            header h1 { font-size: 2em; letter-spacing: 1px; }
+            h2 { font-size: 1.8em; margin-bottom: 30px; }
+            .header-image { height: 250px; border-radius: 15px; }
+
+            /* Карточки на всю ширину */
+            .approach-card { padding: 25px; border-radius: 25px; }
+            .approach-text { font-size: 1em; }
+
+            /* Услуги в одну колонку */
+            ul { gap: 15px; }
+            li { flex: 1 1 100%; } /* Одна колонка */
+
+            /* Форма */
+            .form-container { padding: 25px 20px; }
+
+            /* Футер компактнее */
+            .social-btn { padding: 10px 20px; font-size: 0.9em; flex: 1 1 40%; }
+            .inn-badge { font-size: 0.8rem; padding: 10px; }
+
+            /* Слайдер ниже на телефоне */
+            .fullscreen-section { height: 60vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="static/img/foto1.png.png" class="header-image" alt="Smirnov Marketing" onerror="this.style.display='none'">
+
+        <h1>Smirnov Marketing | IT</h1>
+        <p>Маркетинг • Разработка • Дизайн</p>
+    </header>
+
+    <div class="approach-section">
+        <div class="approach-card">
+            <h2>🚀 Обо мне</h2>
+            <div class="approach-text">
+                <p>Всем привет! Меня зовут <strong>Смирнов Пётр Сергеевич</strong>. Я молодой начинающий Web разработчик и интернет маркетолог из небольшого городка Костромской области.</p>
+                <p>Я по большей части самоучка и верю, что лучшая учеба — это практика. Однако, чтобы систематизировать свои знания и выйти на профессиональный уровень, я обучался на интернет маркетинг, на ведущей всероссийской образовательной платформе <strong>Skillbox</strong>.</p>
+                <p>Я твердо убежден: <strong>хороший бизнес заслуживает того, чтобы о нём узнали</strong>. Моя цель — помочь предпринимателям и компаниям заявить о себе в цифровом пространстве.</p>
+                <p>Я люблю общаться и работать с людьми, которые не сидят на месте, стремятся к чему-то большему и готовы двигаться вперед. Я полностью открыт для диалога и новых бизнес идей.</p>
+                <p>В своей работе я объединяю <strong>творчество и креатив</strong>. Красивая картинка это здорово, но в бизнесе она должна работать: привлекать клиентов, увеличить узнаваемость и, в конечном итоге, повысить ваши продажи.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="fullscreen-section">
+        <div class="fullscreen-slideshow">
+            <img src="../static/img/foto3.png.png" class="slide-full" alt="Проект 1">
+            <img src="../static/img/foto4.png.png" class="slide-full" alt="Проект 2">
+        </div>
+    </div>
+
+    <div class="services-section">
+        <div class="services-content">
+            <h2>⚡ Чем я полезен?</h2>
+            <p style="color:#00f260; font-weight:bold; margin-bottom:30px; font-size:1.1em;">Глобальные решения 👇</p>
+            <ul>
+                <li><a href="#order-form" class="service-link">💻 <strong>Разработка сайтов</strong> Лендинги и визитки.</a></li>
+                <li><a href="#order-form" class="service-link">🤖 <strong>Боты</strong> Автоматизация TG.</a></li>
+                <li><a href="#order-form" class="service-link">🎨 <strong>Дизайн</strong> Инфографика.</a></li>
+                <li><a href="#order-form" class="service-link">📢 <strong>SMM</strong> Продвижение.</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="sky-section">
+        <div class="sky-content">
+            <h2>📌 Важно знать</h2>
+            <div class="accordion" onclick="toggle(this)">⏱ Какие сроки?</div>
+            <div class="panel">
+                <p>Работаю на качество и совесть. Лендинг (сайт визитка)— <strong>от 7 дней</strong>. Телеграм-бот — <strong>от 3 дней</strong>.</p>
+            </div>
+            <div class="accordion" onclick="toggle(this)">💰 Прозрачная цена</div>
+            <div class="panel">
+                <p>Разработка сайта стартует от <strong>2 999 ₽</strong>. Всё честно, без переплат. Мы обсуждаем всё заранее.</p>
+            </div>
+            <div class="accordion" onclick="toggle(this)">🛡 Гарантии и Оплата</div>
+            <div class="panel">
+                <p>Я работаю на себя как самозанятый. Оплата производится поэтапно.</p>
+            </div>
+            <div class="accordion" onclick="toggle(this)">🔥 В чем моя фишка?</div>
+            <div class="panel">
+                <p>В этой сфере я недавно, и нарабатываю портфолио, отзывы и кейсы. В вашем проекте использую креатив и творчество, которое принесет деньги, а не просто "красивую картинку".</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section" id="order-form">
+        <div class="cta-content">
+            <h2>Обсудим ваш проект?</h2>
+            <div class="form-container">
+                <form action="https://formspree.io/f/mnnjzqyl" method="POST">
+                    <input type="text" name="Имя" placeholder="Ваше Имя" required>
+                    <input type="tel" name="Телефон" placeholder="Ваш Телефон" required>
+                    <textarea name="Сообщение" placeholder="Какой сайт или бот нужен?" rows="4"></textarea>
+                    <button type="submit" class="cta-button">ОТПРАВИТЬ ЗАЯВКУ 🚀</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="font-weight:800; font-size:1.5em; margin-bottom:20px;">Мои Контакты</div>
+        <div class="social-row">
+            <a href="https://vk.com/petrsmrnv2004" target="_blank" class="social-btn vk">VKontakte</a>
+            <a href="https://wa.me/79536415081" target="_blank" class="social-btn wa">WhatsApp</a>
+            <a href="https://t.me/petrsmirnov2004" target="_blank" class="social-btn tg">Telegram</a>
+        </div>
+
+        <div style="margin-top:40px; font-weight:800; font-size: 1.2em;">✅ Smirnov Marketing | IT</div>
+        <div style="opacity:0.8; margin-bottom: 20px;">Официально подтверждено</div>
+
+        <div class="inn-badge">
+            <span style="color:#00f260; font-size:1.2em; margin-right:5px;">✔</span>
+            <span>Статус: Самозанятый</span>
+            <strong style="margin-left:5px;">ИНН 440703505555</strong>
+        </div>
+
+        <div class="bank-icons">
+            <p style="margin-bottom:10px; font-weight:bold; color:#aaa;">Я принимаю оплату официально:</p>
+            <span>🟢 SBERBANK</span>
+            <span>🔴 ALFA BANK</span>
+            <span>🔵 OZON BANK</span>
+        </div>
+
+        <p style="margin-top:30px; opacity:0.6; font-size:0.8em;">© 2026 Смирнов Пётр Сергеевич. Все права защищены.</p>
+    </footer>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">📞 +7 (953) 641-50-81 <span class="sep">•</span></div>
+            <div class="ticker-item">⚡ SMIRNOV MARKETING <span class="sep">•</span></div>
+            <div class="ticker-item">💻 САЙТЫ <span class="sep">•</span></div>
+            <div class="ticker-item">🤖 БОТЫ <span class="sep">•</span></div>
+            <div class="ticker-item">📢 РЕКЛАМА <span class="sep">•</span></div>
+            <div class="ticker-item">📈 МАРКЕТИНГ <span class="sep">•</span></div>
+            <div class="ticker-item">🚀 IT РЕШЕНИЯ <span class="sep">•</span></div>
+        </div>
+    </div>
+
+    <script>
+        function toggle(el) {
+            el.classList.toggle("active-sky");
+            var panel = el.nextElementSibling;
+            if (panel.style.maxHeight) { panel.style.maxHeight = null; }
+            else { panel.style.maxHeight = panel.scrollHeight + "px"; }
+        }
+    </script>
+
+</body>
+</html>
