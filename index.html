@@ -7,21 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* ==================== БАЗОВЫЕ СТИЛИ (ПК) ==================== */
+        /* ==================== БАЗОВЫЕ СТИЛИ ==================== */
         body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); color: #333; line-height: 1.6; overflow-x: hidden; padding-bottom: 60px; }
         html { scroll-behavior: smooth; }
         img { max-width: 100%; height: auto; display: block; }
 
         /* ШАПКА */
         header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 20px 60px; text-align: center; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4); }
-        
         .header-image { 
             width: 140px; height: 140px; 
             object-fit: cover; border-radius: 50%; 
             margin: 0 auto 20px; 
             border: 4px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
         }
-        
         header h1 { font-family: 'Montserrat', sans-serif; font-size: 2.2em; margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; line-height: 1.2; }
         header p { font-family: 'Montserrat', sans-serif; font-size: 1.1em; margin-top: 10px; color: #00f260; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
 
@@ -29,7 +27,7 @@
         h2 { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2em; margin-bottom: 30px; position: relative; font-weight: 800; }
         h2::after { content: ''; display: block; width: 60px; height: 5px; background: linear-gradient(90deg, #667eea, #764ba2); margin: 10px auto 0; border-radius: 10px; }
 
-        /* СЕКЦИИ (Общие настройки) */
+        /* СЕКЦИИ */
         .approach-section, .services-section, .sky-section, .cta-section { padding: 80px 20px; position: relative; }
         
         /* ОБО МНЕ */
@@ -42,11 +40,28 @@
         .approach-text p { margin-bottom: 15px; }
         .approach-text strong { color: #00f260; font-weight: 800; }
 
-        /* СЛАЙДЕР */
-        .fullscreen-section { height: 60vh; background: #000; overflow: hidden; position: relative; }
+        /* ==================== ИСПРАВЛЕННЫЙ СЛАЙДЕР ==================== */
+        .fullscreen-section { 
+            height: 300px; /* Фиксированная высота, чтобы не был гигантским */
+            background: #222; /* Темный фон под картинкой */
+            overflow: hidden; 
+            position: relative; 
+            margin: 20px 0; /* Отступы сверху и снизу */
+        }
         .fullscreen-slideshow { position: relative; width: 100%; height: 100%; }
-        .slide-full { width: 100%; height: 100%; object-fit: cover; position: absolute; animation: fadeFull 8s infinite; opacity: 0; }
-        .slide-full:nth-child(1) { animation-delay: 0s; } .slide-full:nth-child(2) { animation-delay: 4s; }
+        
+        .slide-full { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; /* ВАЖНО: Картинка теперь не обрезается, а влезает целиком */
+            position: absolute; 
+            animation: fadeFull 8s infinite; 
+            opacity: 0; 
+        }
+        
+        .slide-full:nth-child(1) { animation-delay: 0s; } 
+        .slide-full:nth-child(2) { animation-delay: 4s; }
+        
         @keyframes fadeFull { 0%, 50% { opacity: 1; } 60%, 100% { opacity: 0; } }
 
         /* УСЛУГИ */
@@ -98,44 +113,37 @@
         .sep { margin-left: 10px; color: #00f260; }
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-        /* ==================== 📱 МОБИЛЬНАЯ АДАПТАЦИЯ (СУПЕР КОМПАКТНО) ==================== */
+        /* ==================== МОБИЛЬНАЯ АДАПТАЦИЯ ==================== */
         @media (max-width: 768px) {
-            /* Уменьшаем отступы между блоками в 2 раза */
             .approach-section, .services-section, .sky-section, .cta-section, footer { 
-                background-attachment: scroll; /* Чтобы фон не глючил */
-                padding: 40px 15px; /* БЫЛО 80px, СТАЛО 40px */
+                background-attachment: scroll; 
+                padding: 40px 15px; 
             }
 
-            /* Уменьшаем шапку */
             header { padding: 30px 15px 40px; }
-            .header-image { width: 110px; height: 110px; } /* Аватарка меньше */
-            header h1 { font-size: 1.7em; } /* Заголовок меньше */
+            .header-image { width: 110px; height: 110px; } 
+            header h1 { font-size: 1.7em; }
             header p { font-size: 0.95em; letter-spacing: 1px; }
 
-            /* Уменьшаем заголовки разделов */
             h2 { font-size: 1.6em; margin-bottom: 20px; }
             h2::after { margin-top: 10px; }
 
-            /* Текст стал чуть меньше и компактнее */
             .approach-card { padding: 25px; }
             .approach-text, .panel p { font-size: 1em; line-height: 1.5; }
 
-            /* Слайдер стал ниже, чтобы не занимать весь экран */
-            .fullscreen-section { height: 40vh; }
+            /* Высота слайдера на мобильном */
+            .fullscreen-section { height: 300px; } 
 
-            /* Кнопки соцсетей компактнее */
             .social-btn { padding: 10px 15px; font-size: 0.85em; flex: 1 1 40%; }
-            
-            /* ИНН и банки */
             .inn-badge { padding: 8px 15px; font-size: 0.8rem; margin: 20px auto; }
-            .bank-icons span { padding: 5px 10px; font-size: 0.8em; }
         }
 
-        /* Возвращаем красоту для ПК */
         @media (min-width: 769px) {
             .header-image { width: 100%; max-width: 900px; height: 320px; border-radius: 25px; border: 5px solid rgba(255,255,255,0.25); }
             ul { flex-direction: row; }
-            .fullscreen-section { height: 100vh; }
+            
+            /* На компе слайдер большой */
+            .fullscreen-section { height: 90vh; }
         }
     </style>
 </head>
